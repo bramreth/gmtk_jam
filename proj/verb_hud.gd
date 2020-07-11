@@ -2,14 +2,27 @@ extends CenterContainer
 
 onready var texter = get_node("LineEdit")
 var active = false
+var keywords = ['dance', 'open', 'attack', 'seduce', 'help']
+var known_k = [1, 2]
+var w_index = 0
 
 func _ready():
 	activate_texter(active)
 
 func _input(event):
-	if Input.get_action_strength("ui_accept") and not active:
-		activate_texter(true)
-		get_tree().set_input_as_handled()
+	if not active:
+		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down"):
+			activate_texter(true)
+		elif Input.is_action_just_pressed("ui_accept"):
+			activate_texter(true)
+			get_tree().set_input_as_handled()
+	if active:
+		if Input.is_action_just_pressed("ui_up"):
+			w_index = fposmod(w_index + 1, known_k.size())
+			texter.text = keywords[known_k[w_index]]
+		if Input.is_action_just_pressed("ui_down"):
+			w_index = fposmod(w_index - 1, known_k.size())
+			texter.text = keywords[known_k[w_index]]
 
 func _on_LineEdit_text_entered(new_text: String):
 	# sanitise the text before parsing
@@ -35,9 +48,7 @@ func _on_LineEdit_text_changed(new_text: String):
 		_on_LineEdit_text_entered(new_text)
 
 func parse_text(text_in: String):
-	
 	var valid = false
-	var keywords = ['dance', 'open', 'attack', 'seduce', 'help']
 	var top_word = ["", 0.5]
 	for k in keywords:
 		var sim = text_in.similarity(k)
@@ -46,5 +57,4 @@ func parse_text(text_in: String):
 	print(top_word)
 	if top_word[0]:
 		valid = true
-	print(valid)
 	if valid: activate_texter(false)
