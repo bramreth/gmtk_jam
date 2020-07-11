@@ -40,7 +40,7 @@ func _physics_process(delta):
 	var flicker = noise.get_noise_1d(time) / 10.0
 	$Light2D.scale = Vector2(1 + flicker, 1 + flicker)
 
-func _input(event):
+func _unhandled_input(event):
 	if GameManager.hud_active or is_dead: return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir, true):
