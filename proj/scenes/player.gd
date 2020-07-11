@@ -37,7 +37,7 @@ func _unhandled_input(event):
 			
 func move(dir):
 	ray.cast_to = inputs[dir] * tile_size
-	ray.force_raycast_update()
+	update_selection()
 	if !ray.is_colliding() and !$CurveTween.is_active():
 		$CurveTween.play(0.08, position, position + inputs[dir] * tile_size)
 #		position += inputs[dir] * tile_size
@@ -47,10 +47,13 @@ func _on_CurveTween_curve_tween(sat):
 	position = sat
 
 
-func _on_CurveTween_tween_completed(object, key):
+func update_selection():
 	ray.force_raycast_update()
 	active_interactible = null
 	if ray.get_collider():
 		if ray.get_collider().get("is_interactible"):
 			active_interactible = ray.get_collider()
+
+func _on_CurveTween_tween_completed(object, key):
+	update_selection()
 	
