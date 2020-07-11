@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/hud/reading_material.gd" type="Script" id=1]
+[ext_resource path="res://art_assets/book.png" type="Texture" id=2]
+[ext_resource path="res://fonts/hand_writing.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/Dungeon Crawler CB.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "show_hint"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="material" type="Control"]
 anchor_right = 1.0
@@ -13,13 +38,71 @@ __meta__ = {
 [node name="image" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.76587
-margin_top = 1.76596
-margin_right = -1.76587
-margin_bottom = 1.76599
+margin_left = -208.101
+margin_top = -120.184
+margin_right = -208.101
+margin_bottom = -102.184
+rect_scale = Vector2( 1.4, 1.4 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 2 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label" type="Label" parent="."]
+margin_left = 521.344
+margin_top = 177.527
+margin_right = 801.344
+margin_bottom = 474.527
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -30
+text = "Useful Commandz!
+
+Open     Read
+"
+
+[node name="Control" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+margin_left = 8.98865
+margin_top = 11.2358
+margin_right = -735.011
+margin_bottom = 71.2359
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 23.5953
+margin_top = 4.49436
+margin_right = 23.5953
+margin_bottom = 4.49436
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.0392157, 0.0235294, 0.0235294, 0.882353 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 29.2132
+margin_top = 12.3594
+margin_right = 277.213
+margin_bottom = 49.3594
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "   Use comands you find along
+   your trial  to aid your escape"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/show_hint = SubResource( 3 )

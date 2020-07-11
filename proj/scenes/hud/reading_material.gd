@@ -4,21 +4,18 @@ onready var image = $image
 
 func _ready():
 	visible = false
-	EventBus.connect("show_material", self, "_show_material")
+	EventBus.connect("show_material", self, "_show")
 	pass 
 
-
 func _input(event):
-	if visible and (Input.get_action_strength("ui_cancel") or Input.get_action_strength("ui_escape")):
-		_remove_material()
+	if visible and (Input.get_action_strength("ui_cancel") or Input.get_action_strength("ui_accept")):
+		_hide()
 		
-func _show_material(id):
+func _show():
+	$animation_player.play("show_hint")
 	GameManager.hud_active = true
-	image.texture = load("res://art_assets/reading_material/" + str(id) + ".png")
 	visible = true
-	pass
 
-func _remove_material():
+func _hide():
 	GameManager.hud_active = false
 	visible = false
-	image.texture = null
