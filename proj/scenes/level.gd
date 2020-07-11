@@ -17,7 +17,6 @@ func _ready():
 func _on_player_moved(pos: Vector2):
 	var closest = [$Node2D.target, INF]
 	for cam in cam_list:
-		print(cam.name, " ", pos.distance_to(cam.position))
 		var d = pos.distance_to(cam.position)
 		if d < closest[1]:
 			closest = [cam, d]

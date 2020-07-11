@@ -11,6 +11,8 @@ onready var current_text_speed = DEFAULT_TEXT_SPEED
 var dialog_list
 var dialog_index = 0
 var dispatching_text = false
+var dialog_type = null
+
 
 func _ready():
 	EventBus.connect("start_dungeon_master_dialog", self, "_start_dialog")
@@ -22,7 +24,8 @@ func _input(event):
 		else:
 			_next_dialog()
 	
-func _start_dialog(name):
+func _start_dialog(name, type):
+	dialog_type = type
 	if GameManager.in_dialog: return
 	dialog_list = GameManager.get_dialog(name)
 	dialog_index
@@ -55,6 +58,11 @@ func _next_dialog():
 		_hide()
 		
 func _hide():
+	match Dialog.Sequence.keys()[dialog_type]:
+		"dance":
+			GameManager.player.end_dance()
+		_:
+			pass
 	dialog_list = null	
 	dialog_index = 0
 	GameManager.in_dialog = false

@@ -48,6 +48,14 @@ func _unhandled_input(event):
 			
 func move(dir):
 	if $CurveTween.is_active(): return
+	match dir:
+		"down": 
+			$Sprite.animation = "walk_down"
+			$Sprite.play()
+		"up": 
+			$Sprite.animation = "walk_down"
+			$Sprite.play()
+		
 	match current_stip:
 		GameManager.stipulation.FAST:
 			ray.cast_to = inputs[dir] * tile_size
@@ -57,7 +65,9 @@ func move(dir):
 			ray.cast_to = inputs[dir] * tile_size
 			update_selection()
 			if !ray.is_colliding():
-				$CurveTween.play(0.08, position, position + inputs[dir] * tile_size)
+				$CurveTween.play(0.2, position, position + inputs[dir] * tile_size)
+			else:
+				$Sprite.animation = "default"
 		#		position += inputs[dir] * tile_size
 	
 func deep_raycast(dir, multiple):
@@ -82,6 +92,7 @@ func update_selection():
 func _on_CurveTween_tween_completed(object, key):
 	update_selection()
 	emit_signal("moved", position)
+	$Sprite.animation = "default"
 	
 func die(death_type):
 	match (death_type):
@@ -97,3 +108,7 @@ func respawn():
 
 func dance():
 	animation_player.play("dance_1")
+	
+func end_dance():
+	animation_player.stop()
+	animation_player.seek(0)

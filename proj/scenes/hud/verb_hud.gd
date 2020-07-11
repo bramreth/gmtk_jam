@@ -65,7 +65,9 @@ func parse_text(text_in: String):
 		match action:
 			Verbs.HELP:
 				Dialog.start(Dialog.Sequence.Help)
-				pass
+			Verbs.DANCE:
+				Dialog.start(Dialog.Sequence.dance)
+				GameManager.player.dance()
 			_:
 				if GameManager.player.active_interactible:
 					GameManager.player.active_interactible.interact(action)

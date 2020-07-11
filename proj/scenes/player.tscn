@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://CurveTween/CurveTween.gd" type="Script" id=1]
-[ext_resource path="res://art_assets/pc.png" type="Texture" id=2]
+[ext_resource path="res://art_assets/front_walk_cycle_sheet.png" type="Texture" id=2]
 [ext_resource path="res://art_assets/flash.png" type="Texture" id=3]
 [ext_resource path="res://scenes/player.gd" type="Script" id=4]
+[ext_resource path="res://art_assets/pc.png" type="Texture" id=5]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
@@ -12,6 +13,39 @@ extents = Vector2( 64, 64 )
 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.4, 0.0, 0, 0 ]
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "walk_down",
+"speed": 32.0
+} ]
 
 [sub_resource type="Animation" id=4]
 resource_name = "dance_1"
@@ -44,8 +78,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( -4, -0.25, 0, 0.22, 1.35437, 4, -0.21, 0.616169, 0.39, -0.166353, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0.2, 0.6, 0.8 )
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -4, -0.25, 0, 0.22, 1.35437, 4, -0.21, 0.616169, 0.39, -0.166353, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8 )
 }
 
 [sub_resource type="Animation" id=5]
@@ -104,8 +138,9 @@ shadow_enabled = true
 script = ExtResource( 1 )
 curve = SubResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 10 )
+playing = true
 centered = false
 
 [node name="animation_player" type="AnimationPlayer" parent="."]

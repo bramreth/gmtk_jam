@@ -4,8 +4,9 @@ enum Sequence {
 	floor1,
 	floor2,
 	DoorIsLocked,
-	Help
+	Help,
+	dance
 }
 
 func start(sequence):
-	EventBus.emit_signal("start_dungeon_master_dialog", Dialog.Sequence.keys()[sequence])
+	EventBus.emit_signal("start_dungeon_master_dialog", Dialog.Sequence.keys()[sequence], sequence)
