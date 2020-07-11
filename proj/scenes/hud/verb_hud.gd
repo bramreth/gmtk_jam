@@ -2,7 +2,7 @@ extends CenterContainer
 
 onready var texter = get_node("LineEdit")
 var active = false
-var keywords = [Verbs.DANCE, Verbs.OPEN, Verbs.ATTACK, Verbs.SEDUCE, Verbs.HELP]
+var keywords = Verbs.get_list()
 var known_k = [Verbs.OPEN, Verbs.ATTACK]
 var w_index = 0
 
@@ -59,5 +59,5 @@ func parse_text(text_in: String):
 	if top_word[0]:
 		valid = true
 		if GameManager.player.active_interactible:
-			GameManager.player.active_interactible._interact(top_word[0])
+			GameManager.player.active_interactible.interact(top_word[0])
 	if valid: activate_texter(false)

@@ -6,5 +6,5 @@ onready var collision = $collision
 onready var sprite = $collision/sprite
 var is_interactible = true
 
-func _interact(verb):
+func interact(verb):
 	pass
