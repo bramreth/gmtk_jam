@@ -7,6 +7,7 @@ var tile_size = 128
 var abs_pos = position
 
 var active_interactible = null
+var underneath_tile = null
 
 var inputs = {
 	"right": Vector2.RIGHT,
@@ -15,7 +16,10 @@ var inputs = {
 	"down": Vector2.DOWN
 }
 
+var spawn_point = Vector2()
+
 onready var ray = $RayCast2D
+onready var animation_player = $animation_player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +28,9 @@ func _ready():
 	position += Vector2.ONE # * tile_size/2
 	abs_pos = position
 
+func set_spawn_point(spawn_point):
+	self.spawn_point = spawn_point
+	respawn()
 
 func _physics_process(delta):
 	time += delta * 100
@@ -41,11 +48,10 @@ func move(dir):
 	if !ray.is_colliding() and !$CurveTween.is_active():
 		$CurveTween.play(0.08, position, position + inputs[dir] * tile_size)
 #		position += inputs[dir] * tile_size
-
+	
 
 func _on_CurveTween_curve_tween(sat):
 	position = sat
-
 
 func update_selection():
 	ray.force_raycast_update()
@@ -57,3 +63,14 @@ func update_selection():
 func _on_CurveTween_tween_completed(object, key):
 	update_selection()
 	
+func die(death_type):
+	match (death_type):
+		Deaths.Type.Fire:
+			animation_player.play("fire_death")
+			pass
+		Deaths.Type.Acid:
+			animation_player.play("acid_death")
+			pass
+
+func respawn():
+	position = spawn_point
