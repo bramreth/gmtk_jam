@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://CurveTween/CurveTween.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/pc.png" type="Texture" id=2]
@@ -14,7 +14,41 @@ extents = Vector2( 64, 64 )
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.4, 0.0, 0, 0 ]
 
 [sub_resource type="Animation" id=4]
-resource_name = "fire_death"
+resource_name = "dance_1"
+length = 0.8
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.24, -1.95701, 0, -0.25, 0, 0.37, 1.36088, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Sprite:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -15, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -15, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Sprite:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -4, -0.25, 0, 0.22, 1.35437, 4, -0.21, 0.616169, 0.39, -0.166353, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.2, 0.6, 0.8 )
+}
+
+[sub_resource type="Animation" id=5]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -75,6 +109,7 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
-anims/fire_death = SubResource( 4 )
+anims/dance_1 = SubResource( 4 )
+anims/fire_death = SubResource( 5 )
 [connection signal="curve_tween" from="CurveTween" to="." method="_on_CurveTween_curve_tween"]
 [connection signal="tween_completed" from="CurveTween" to="." method="_on_CurveTween_tween_completed"]

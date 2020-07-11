@@ -47,6 +47,8 @@ func activate_texter(on):
 func _on_LineEdit_text_changed(new_text: String):
 	if new_text.ends_with(" ") and new_text.length():
 		_on_LineEdit_text_entered(new_text)
+	elif new_text == "ww" or new_text == "aa" or new_text == "ss" or new_text == "dd":
+		_on_LineEdit_text_entered("")
 
 func parse_text(text_in: String):
 	var valid = false

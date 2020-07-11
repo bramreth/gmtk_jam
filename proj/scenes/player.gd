@@ -94,3 +94,6 @@ func die(death_type):
 
 func respawn():
 	position = spawn_point
+
+func dance():
+	animation_player.play("dance_1")
