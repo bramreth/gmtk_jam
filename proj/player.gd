@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+export(OpenSimplexNoise) var noise
+var time = 0
+
 var tile_size = 128
 
 var inputs = {
@@ -15,6 +18,12 @@ onready var ray = $RayCast2D
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE # * tile_size/2
+
+
+func _physics_process(delta):
+	time += delta * 100
+	var flicker = noise.get_noise_1d(time) / 10.0
+	$Light2D.scale = Vector2(1 + flicker, 1 + flicker)
 
 func _unhandled_input(event):
 	for dir in inputs.keys():
