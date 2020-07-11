@@ -48,24 +48,19 @@ func _unhandled_input(event):
 			
 func move(dir):
 	if $CurveTween.is_active(): return
-	match dir:
-		"down": 
-			$Sprite.animation = "walk_down"
-			$Sprite.play()
-		"up": 
-			$Sprite.animation = "walk_down"
-			$Sprite.play()
+	$Sprite.animation = "walk_" + dir
+	$Sprite.play()
 		
 	match current_stip:
 		GameManager.stipulation.FAST:
 			ray.cast_to = inputs[dir] * tile_size
 			update_selection()
-			$CurveTween.play(0.08, position, position + deep_raycast(inputs[dir], 1))
+			$CurveTween.play(0.15, position, position + deep_raycast(inputs[dir], 1))
 		_:
 			ray.cast_to = inputs[dir] * tile_size
 			update_selection()
 			if !ray.is_colliding():
-				$CurveTween.play(0.2, position, position + inputs[dir] * tile_size)
+				$CurveTween.play(0.5, position, position + inputs[dir] * tile_size)
 			else:
 				$Sprite.animation = "default"
 		#		position += inputs[dir] * tile_size
