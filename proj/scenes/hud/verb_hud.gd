@@ -62,6 +62,8 @@ func parse_text(text_in: String):
 	if top_word[0]:
 		valid = true
 		var action = top_word[0]
+		if !known_k.has(action) && keywords.has(action):
+			known_k.push_back(action)
 		match action:
 			Verbs.HELP:
 				Dialog.start(Dialog.Sequence.Help)
