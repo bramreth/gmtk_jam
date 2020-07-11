@@ -3,7 +3,7 @@ extends CenterContainer
 onready var texter = get_node("LineEdit")
 var active = false
 var keywords = [Verbs.DANCE, Verbs.OPEN, Verbs.ATTACK, Verbs.SEDUCE, Verbs.HELP]
-var known_k = [1, 2]
+var known_k = [Verbs.OPEN, Verbs.ATTACK]
 var w_index = 0
 
 func _ready():
@@ -20,10 +20,10 @@ func _input(event):
 	if active:
 		if Input.is_action_just_pressed("ui_up"):
 			w_index = fposmod(w_index + 1, known_k.size())
-			texter.text = keywords[known_k[w_index]]
+			texter.text = known_k[w_index]
 		if Input.is_action_just_pressed("ui_down"):
 			w_index = fposmod(w_index - 1, known_k.size())
-			texter.text = keywords[known_k[w_index]]
+			texter.text = known_k[w_index]
 
 func _on_LineEdit_text_entered(new_text: String):
 	# sanitise the text before parsing
