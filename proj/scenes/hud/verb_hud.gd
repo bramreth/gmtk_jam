@@ -1,4 +1,4 @@
-extends CenterContainer
+extends Control
 
 onready var texter = get_node("LineEdit")
 var active = false
