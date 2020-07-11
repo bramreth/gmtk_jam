@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/flash.png" type="Texture" id=2]
+[ext_resource path="res://CurveTween/CurveTween.gd" type="Script" id=3]
 
 [sub_resource type="OpenSimplexNoise" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 64, 64 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.4, 0.0, 0, 0 ]
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -29,5 +33,10 @@ cast_to = Vector2( 0, 128 )
 position = Vector2( 64, 96 )
 texture = ExtResource( 2 )
 texture_scale = 4.0
-energy = 0.6
+energy = 0.75
 shadow_enabled = true
+
+[node name="CurveTween" type="Tween" parent="."]
+script = ExtResource( 3 )
+curve = SubResource( 3 )
+[connection signal="curve_tween" from="CurveTween" to="." method="_on_CurveTween_curve_tween"]

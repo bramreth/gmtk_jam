@@ -4,6 +4,7 @@ export(OpenSimplexNoise) var noise
 var time = 0
 
 var tile_size = 128
+var abs_pos = position
 
 var inputs = {
 	"right": Vector2.RIGHT,
@@ -18,6 +19,7 @@ onready var ray = $RayCast2D
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE # * tile_size/2
+	abs_pos = position
 
 
 func _physics_process(delta):
@@ -33,5 +35,10 @@ func _unhandled_input(event):
 func move(dir):
 	ray.cast_to = inputs[dir] * tile_size
 	ray.force_raycast_update()
-	if !ray.is_colliding():
-		position += inputs[dir] * tile_size
+	if !ray.is_colliding() and !$CurveTween.is_active():
+		$CurveTween.play(0.08, position, position + inputs[dir] * tile_size)
+#		position += inputs[dir] * tile_size
+
+
+func _on_CurveTween_curve_tween(sat):
+	position = sat
