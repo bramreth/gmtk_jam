@@ -5,8 +5,9 @@ export(bool) var locked = false
 func _ready():
 	EventBus.connect("unlock_door", self, "_unlock_and_open")
 	
-func _interact(verb):
-		_open()
+func interact(verb):
+		if verb == Verbs.OPEN:
+			_open()
 	
 func _unlock_and_open(id):
 	if self.id == id:	
