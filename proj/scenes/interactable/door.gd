@@ -1,7 +1,6 @@
 extends "res://scenes/interactable/interactable.gd"
 class_name interactible
 export(bool) var locked = false
-export(bool) var o = false
 
 func _ready():
 	EventBus.connect("unlock_door", self, "_unlock_and_open")
@@ -11,6 +10,7 @@ func interact(verb):
 		if verb == Verbs.OPEN:
 			_open()
 		if verb == Verbs.CLOSE:
+			print("close")
 			_close()
 	
 func _unlock_and_open(id):
@@ -33,7 +33,6 @@ func _open():
 		Dialog.start(Dialog.Sequence.DoorIsLocked)
 
 func _close():
-	collision.set_deferred("disabled", false)
 	collision.set_deferred("disabled", false)
 	sprite.color = Color(255, 1, 1)
 	# todo $LightOccluder2D un free queue?
