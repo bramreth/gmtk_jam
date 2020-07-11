@@ -3,7 +3,8 @@ extends Node
 enum Sequence {
 	floor1,
 	floor2,
-	DoorIsLocked	
+	DoorIsLocked,
+	Help
 }
 
 func start(sequence):
