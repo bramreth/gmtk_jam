@@ -16,7 +16,7 @@ position = Vector2( 3296, 928 )
 
 [node name="dialog_tile" parent="." index="3" instance=ExtResource( 4 )]
 position = Vector2( 2496, -192 )
-tile_action = 1
+stipulation = 0
 
 [node name="book" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 768, -256 )
