@@ -1,6 +1,7 @@
 extends "res://scenes/interactable/interactable.gd"
 class_name interactible
 export(bool) var locked = false
+var open = false
 
 func _ready():
 	EventBus.connect("unlock_door", self, "_unlock_and_open")
@@ -23,16 +24,20 @@ func _lock_and_close(id):
 		_close()
 
 func _open():
-	if !locked:
-		collision.set_deferred("disabled", true)
-		$LightOccluder2D.set_occluder_light_mask(0) 
-		sprite.color = Color(1, 255, 1)
-		_play_sound("sfx/open.wav")
-	else:
-		Dialog.start(Dialog.Sequence.DoorIsLocked)
+	if !open:
+		if !locked:
+			collision.set_deferred("disabled", true)
+			$LightOccluder2D.set_occluder_light_mask(0) 
+			sprite.color = Color(1, 255, 1)
+			_play_sound("sfx/open.wav")
+			open = true
+		else:
+			Dialog.start(Dialog.Sequence.DoorIsLocked)
 
 func _close():
-	collision.set_deferred("disabled", false)
-	sprite.color = Color(255, 1, 1)
-	$LightOccluder2D.set_occluder_light_mask(1)
+	if open:
+		collision.set_deferred("disabled", false)
+		sprite.color = Color(255, 1, 1)
+		_play_sound("sfx/close.wav")
+		open = false
 	# todo $LightOccluder2D un free queue?
