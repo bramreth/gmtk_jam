@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://CurveTween/CurveTween.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/pc.png" type="Texture" id=2]
@@ -12,6 +12,35 @@ extents = Vector2( 64, 64 )
 
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.4, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=4]
+resource_name = "fire_death"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "respawn"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 4 )
@@ -44,5 +73,8 @@ curve = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 centered = false
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/fire_death = SubResource( 4 )
 [connection signal="curve_tween" from="CurveTween" to="." method="_on_CurveTween_curve_tween"]
 [connection signal="tween_completed" from="CurveTween" to="." method="_on_CurveTween_tween_completed"]
