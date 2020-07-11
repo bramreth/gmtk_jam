@@ -13,7 +13,7 @@ func _input(event):
 		_remove_material()
 		
 func _show_material(id):
-	image.texture = load("res://art_assets/reading_material/" + id + ".png")
+	image.texture = load("res://art_assets/reading_material/" + str(id) + ".png")
 	visible = true
 	pass
 
