@@ -18,12 +18,12 @@ func _unlock_and_open(id):
 func _lock_and_close(id):
 	if self.id == id:	
 		locked = true
-		collision.set_disabled(false)
+		collision.set_deferred("disabled", false)
 		sprite.color = Color(255, 1, 1)
 		# todo $LightOccluder2D un free queue?
 
 func _open():
 	if !locked:
-		collision.set_disabled(true)
+		collision.set_deferred("disabled", true)
 		$LightOccluder2D.queue_free()
 		sprite.color = Color(1, 255, 1)

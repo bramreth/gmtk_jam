@@ -2,6 +2,8 @@ extends Area2D
 
 export (GameManager.stipulation) var stipulation = GameManager.stipulation.NONE
 
+onready var sprite = $collision/sprite
+
 func _on_body_entered(body):
 	if body.name == "player":
 		_on_player_entered(body)
