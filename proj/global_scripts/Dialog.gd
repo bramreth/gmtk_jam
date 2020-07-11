@@ -3,6 +3,7 @@ extends Node
 enum Sequence {
 	floor1,
 	floor2,
+	floor3,
 	DoorIsLocked,
 	Help
 }
