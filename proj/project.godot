@@ -58,6 +58,7 @@ config/icon="res://art_assets/icon.png"
 
 EventBus="*res://global_scripts/EventBus.gd"
 GameManager="*res://global_scripts/GameManager.gd"
+Verbs="*res://global_scripts/verbs.gd"
 
 [display]
 

@@ -2,7 +2,7 @@ extends CenterContainer
 
 onready var texter = get_node("LineEdit")
 var active = false
-var keywords = ['dance', 'open', 'attack', 'seduce', 'help']
+var keywords = [Verbs.DANCE, Verbs.OPEN, Verbs.ATTACK, Verbs.SEDUCE, Verbs.HELP]
 var known_k = [1, 2]
 var w_index = 0
 

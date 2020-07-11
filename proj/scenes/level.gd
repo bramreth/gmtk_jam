@@ -1,5 +1,6 @@
 extends Node2D
 export(int) var floor_num
+
 """
 this is the base scene for levels it will contain goal logic, the tile map etc
 """
