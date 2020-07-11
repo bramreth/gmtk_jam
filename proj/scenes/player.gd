@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
+signal moved(pos)
 export(OpenSimplexNoise) var noise
 var time = 0
 
 var tile_size = 128
 var abs_pos = position
+
 
 var active_interactible = null
 var underneath_tile = null
@@ -62,6 +64,7 @@ func update_selection():
 
 func _on_CurveTween_tween_completed(object, key):
 	update_selection()
+	emit_signal("moved", position)
 	
 func die(death_type):
 	match (death_type):

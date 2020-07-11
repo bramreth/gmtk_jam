@@ -12,6 +12,8 @@ export var time_scale = 150
 export(float, 0, 1) var decay = 0.6
 
 var time = 0
+
+var target = Vector2(0,0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -29,6 +31,7 @@ func _process(delta):
 	rotation_degrees = noise.get_noise_3d(0, 0, time * time_scale) * max_r * shake
 	
 	if trauma > 0: trauma = clamp(trauma - (delta * decay), 0, 1)
+	position = lerp(position, target, delta * 10)
 
 func _input(event):
 	if Input.get_action_strength("ui_end"):
