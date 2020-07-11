@@ -9,14 +9,16 @@ func _ready():
 
 
 func _input(event):
-	if visible and Input.get_action_strength("ui_cancel"):
+	if visible and (Input.get_action_strength("ui_cancel") or Input.get_action_strength("ui_escape")):
 		_remove_material()
 		
 func _show_material(id):
+	GameManager.hud_active = true
 	image.texture = load("res://art_assets/reading_material/" + str(id) + ".png")
 	visible = true
 	pass
 
 func _remove_material():
+	GameManager.hud_active = false
 	visible = false
 	image.texture = null

@@ -8,7 +8,7 @@ var cam_list = []
 this is the base scene for levels it will contain goal logic, the tile map etc
 """
 func _ready():
-	EventBus.emit_signal("start_dungeon_master_dialog", "floor"+ str(floor_num))
+	Dialog.start_by_name("floor"+ str(floor_num))
 	player.set_spawn_point(stairs_down.position - Vector2(64, 64))
 	cam_list = get_tree().get_nodes_in_group("cam_target")
 	$Node2D.target = $camera_spots/Position2D

@@ -7,7 +7,7 @@ enum stipulation{
 }
 var dialog_path:String = "res://data/dialog.cfg"
 var dialog_json
-var in_dialog = false
+var hud_active = false
 var player = null
 
 func _ready() -> void:

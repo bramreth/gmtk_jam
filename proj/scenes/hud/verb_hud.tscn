@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/hud/verb_hud.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Dungeon Crawler CB.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 35
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -426,7 +426,7 @@ WindowDialog/icons/close = null
 WindowDialog/icons/close_highlight = null
 WindowDialog/styles/panel = null
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 20
 font_data = ExtResource( 2 )
 
@@ -459,7 +459,7 @@ margin_left = 43.9228
 margin_top = 7.49902
 margin_right = 304.923
 margin_bottom = 43.499
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Cast An Action"
 
 [node name="LineEdit" type="LineEdit" parent="."]
@@ -469,7 +469,7 @@ margin_right = 430.0
 margin_bottom = 89.2665
 rect_min_size = Vector2( 256, 0 )
 theme = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 context_menu_enabled = false
 selecting_enabled = false

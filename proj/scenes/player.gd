@@ -3,7 +3,7 @@ extends KinematicBody2D
 signal moved(pos)
 export(OpenSimplexNoise) var noise
 var time = 0
-
+var is_dead = false
 var tile_size = 128
 var abs_pos = position
 
@@ -41,7 +41,7 @@ func _physics_process(delta):
 	$Light2D.scale = Vector2(1 + flicker, 1 + flicker)
 
 func _unhandled_input(event):
-	if GameManager.in_dialog: return
+	if GameManager.hud_active or is_dead: return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
@@ -90,6 +90,7 @@ func _on_CurveTween_tween_completed(object, key):
 	$Sprite.animation = "default"
 	
 func die(death_type):
+	is_dead = true
 	match (death_type):
 		Deaths.Type.Fire:
 			animation_player.play("fire_death")
@@ -99,6 +100,7 @@ func die(death_type):
 			pass
 
 func respawn():
+	is_dead = false
 	position = spawn_point
 
 func dance():
