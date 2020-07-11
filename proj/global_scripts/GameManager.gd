@@ -18,5 +18,5 @@ func get_dialog(name):
 func change_floor(up):
 	if up:
 		level += 1
-		var next_scene_path = "res://level_"+str(level)+".tscn"
+		var next_scene_path = "res://scenes/level_"+str(level)+".tscn"
 		get_tree().change_scene(next_scene_path)
