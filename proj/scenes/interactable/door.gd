@@ -10,7 +10,6 @@ func interact(verb):
 		if verb == Verbs.OPEN:
 			_open()
 		if verb == Verbs.CLOSE:
-			print("close")
 			_close()
 	
 func _unlock_and_open(id):
