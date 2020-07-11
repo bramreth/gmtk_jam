@@ -24,7 +24,8 @@ func _input(event):
 		if Input.is_action_just_pressed("ui_down"):
 			w_index = fposmod(w_index - 1, known_k.size())
 			texter.text = known_k[w_index]
-
+		if Input.is_action_just_pressed("ui_cancel"):
+			activate_texter(false)
 func _on_LineEdit_text_entered(new_text: String):
 	# sanitise the text before parsing
 	var s_text = new_text.strip_edges()
