@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/hand_writing.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art_assets/dm1.png" type="Texture" id=2]
@@ -13,6 +13,45 @@ border_width_bottom = 4
 size = 75
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("dialog/background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("dialog/text:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="dungeon_master" type="VBoxContainer"]
 anchor_right = 1.0
@@ -31,6 +70,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 27.8069
 margin_top = 30.4828
 margin_right = 391.807
@@ -55,6 +95,7 @@ __meta__ = {
 }
 
 [node name="background" type="Panel" parent="dialog"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -65,6 +106,7 @@ __meta__ = {
 }
 
 [node name="text" type="RichTextLabel" parent="dialog"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 20.0
@@ -80,3 +122,6 @@ __meta__ = {
 }
 
 [node name="sound_player" type="AudioStreamPlayer" parent="."]
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/appear = SubResource( 3 )

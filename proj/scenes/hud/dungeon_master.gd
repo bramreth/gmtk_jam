@@ -2,6 +2,7 @@ extends VBoxContainer
 
 onready var sound_player = $sound_player
 onready var dialog = $dialog/text
+onready var animation_player = $animation_player
 
 onready var DEFAULT_TEXT_SPEED = 0.07
 onready var current_text_speed = DEFAULT_TEXT_SPEED
@@ -27,7 +28,7 @@ func _start_dialog(name):
 	dialog_index
 	_next_dialog()
 	GameManager.in_dialog = true
-	visible = GameManager.in_dialog
+	animation_player.play("appear")
 
 func _next_dialog():	
 	dialog.text = ""
@@ -55,5 +56,5 @@ func _hide():
 	dialog_list = null	
 	dialog_index = 0
 	GameManager.in_dialog = false
-	visible = GameManager.in_dialog
+	animation_player.play_backwards("appear")
 	
