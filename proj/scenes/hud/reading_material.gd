@@ -9,7 +9,7 @@ func _ready():
 
 
 func _input(event):
-	if visible and Input.get_action_strength("ui_accept"):
+	if visible and Input.get_action_strength("ui_cancel"):
 		_remove_material()
 		
 func _show_material(id):
