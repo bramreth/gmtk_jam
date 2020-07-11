@@ -40,10 +40,10 @@ func _physics_process(delta):
 	var flicker = noise.get_noise_1d(time) / 10.0
 	$Light2D.scale = Vector2(1 + flicker, 1 + flicker)
 
-func _unhandled_input(event):
+func _input(event):
 	if GameManager.hud_active or is_dead: return
 	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
+		if event.is_action_pressed(dir, true):
 			move(dir)
 			
 func move(dir):
@@ -62,9 +62,21 @@ func move(dir):
 			if !ray.is_colliding():
 				$CurveTween.play(0.5, position, position + inputs[dir] * tile_size)
 			else:
-				$Sprite.animation = "default"
+				stop_walk()
 		#		position += inputs[dir] * tile_size
 	
+func stop_walk():
+	$Sprite.stop()
+	match $Sprite.animation:
+		"walk_up":
+			$Sprite.frame = 1
+		"walk_down":
+			$Sprite.frame = 0
+		"walk_left":
+			$Sprite.frame = 3
+		"walk_right":
+			$Sprite.frame = 0
+		
 func deep_raycast(dir, multiple):
 	ray.cast_to = dir * multiple * tile_size
 	update_selection()
@@ -87,7 +99,7 @@ func update_selection():
 func _on_CurveTween_tween_completed(object, key):
 	update_selection()
 	emit_signal("moved", position)
-	$Sprite.animation = "default"
+	stop_walk()
 	
 func die(death_type):
 	is_dead = true
