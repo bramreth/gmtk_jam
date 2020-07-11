@@ -58,5 +58,6 @@ func parse_text(text_in: String):
 	print(top_word)
 	if top_word[0]:
 		valid = true
-		GameManager.player.active_interactible._interact(top_word[0])
+		if GameManager.player.active_interactible:
+			GameManager.player.active_interactible._interact(top_word[0])
 	if valid: activate_texter(false)

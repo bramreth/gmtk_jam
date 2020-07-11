@@ -12,7 +12,6 @@ var dialog_index = 0
 var dispatching_text = false
 
 func _ready():
-	visible = GameManager.in_dialog
 	EventBus.connect("start_dungeon_master_dialog", self, "_start_dialog")
 
 func _input(event):
