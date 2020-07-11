@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://verb_hud.gd" type="Script" id=1]
+
+[node name="CenterContainer" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 384.0
+margin_top = 288.0
+margin_right = 640.0
+margin_bottom = 312.0
+rect_min_size = Vector2( 256, 0 )
+max_length = 12
+context_menu_enabled = false
+selecting_enabled = false
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
