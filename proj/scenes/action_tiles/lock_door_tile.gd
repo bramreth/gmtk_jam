@@ -7,4 +7,5 @@ func _ready():
 
 func _on_player_entered(player):
 	EventBus.emit_signal("lock_door", door_id)
+	queue_free()
 	
