@@ -10,6 +10,7 @@ func _ready():
 	activate_texter(active)
 
 func _input(event):
+	if GameManager.in_dialog: return
 	if not active:
 		if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down"):
 			activate_texter(true)

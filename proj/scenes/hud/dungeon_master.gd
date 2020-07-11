@@ -11,22 +11,23 @@ var dialog_index = 0
 var dispatching_text = false
 
 func _ready():
-	visible = false;
+	visible = GameManager.in_dialog
 	EventBus.connect("start_dungeon_master_dialog", self, "_start_dialog")
 
 func _input(event):
-	if visible and Input.get_action_strength("ui_accept"):
+	if GameManager.in_dialog and Input.get_action_strength("ui_accept"):
 		if dispatching_text:
 			current_text_speed /= 2
 		else:
 			_next_dialog()
 	
 func _start_dialog(name):
-	if visible: return
+	if GameManager.in_dialog: return
 	dialog_list = GameManager.get_dialog(name)
 	dialog_index
 	_next_dialog()
-	visible = true
+	GameManager.in_dialog = true
+	visible = GameManager.in_dialog
 
 func _next_dialog():	
 	dialog.text = ""
@@ -53,5 +54,6 @@ func _next_dialog():
 func _hide():
 	dialog_list = null	
 	dialog_index = 0
-	visible = false;
+	GameManager.in_dialog = false
+	visible = GameManager.in_dialog
 	
