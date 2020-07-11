@@ -17,4 +17,5 @@ func _unlock_and_open(id):
 func _open():
 	if !locked:
 		collision.set_disabled(true)
+		$LightOccluder2D.queue_free()
 		sprite.color = Color(1, 1, 255, 1)
