@@ -26,7 +26,7 @@ func _lock_and_close(id):
 func _open():
 	if !locked:
 		collision.set_deferred("disabled", true)
-		$LightOccluder2D.queue_free()
+		$LightOccluder2D.set_occluder_light_mask(0) 
 		sprite.color = Color(1, 255, 1)
 		_play_sound("sfx/open.wav")
 	else:
@@ -35,4 +35,5 @@ func _open():
 func _close():
 	collision.set_deferred("disabled", false)
 	sprite.color = Color(255, 1, 1)
+	$LightOccluder2D.set_occluder_light_mask(1)
 	# todo $LightOccluder2D un free queue?
