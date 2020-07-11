@@ -11,3 +11,5 @@ polygon = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 [node name="sprite" type="Polygon2D" parent="collision"]
 color = Color( 0.0313726, 0.0901961, 0.988235, 1 )
 polygon = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[node name="audio_player" type="AudioStreamPlayer" parent="."]

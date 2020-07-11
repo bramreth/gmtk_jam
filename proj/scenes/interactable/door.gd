@@ -28,6 +28,7 @@ func _open():
 		collision.set_deferred("disabled", true)
 		$LightOccluder2D.queue_free()
 		sprite.color = Color(1, 255, 1)
+		_play_sound("sfx/open.wav")
 	else:
 		Dialog.start(Dialog.Sequence.DoorIsLocked)
 
