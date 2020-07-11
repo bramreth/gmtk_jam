@@ -7,6 +7,12 @@ var time = 0
 var tile_size = 128
 var abs_pos = position
 
+enum stipulation{
+	FAST,
+	NONE
+}
+
+export(stipulation) var current_stip = stipulation.NONE
 
 var active_interactible = null
 var underneath_tile = null
@@ -40,17 +46,33 @@ func _physics_process(delta):
 	$Light2D.scale = Vector2(1 + flicker, 1 + flicker)
 
 func _unhandled_input(event):
+	if GameManager.in_dialog: return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
 			
 func move(dir):
-	ray.cast_to = inputs[dir] * tile_size
-	update_selection()
-	if !ray.is_colliding() and !$CurveTween.is_active():
-		$CurveTween.play(0.08, position, position + inputs[dir] * tile_size)
-#		position += inputs[dir] * tile_size
+	if $CurveTween.is_active(): return
+	match current_stip:
+		stipulation.FAST:
+			ray.cast_to = inputs[dir] * tile_size
+			update_selection()
+			$CurveTween.play(0.08, position, position + deep_raycast(inputs[dir], 1))
+		_:
+			ray.cast_to = inputs[dir] * tile_size
+			update_selection()
+			if !ray.is_colliding():
+				$CurveTween.play(0.08, position, position + inputs[dir] * tile_size)
+		#		position += inputs[dir] * tile_size
 	
+func deep_raycast(dir, multiple):
+	ray.cast_to = dir * multiple * tile_size
+	update_selection()
+	if !ray.is_colliding():
+		return deep_raycast(dir, multiple + 1)
+	else:
+		return dir * (multiple - 1) * tile_size
+
 
 func _on_CurveTween_curve_tween(sat):
 	position = sat
