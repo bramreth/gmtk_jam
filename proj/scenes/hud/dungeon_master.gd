@@ -11,61 +11,67 @@ onready var current_text_speed = DEFAULT_TEXT_SPEED
 var dialog_list
 var dialog_index = 0
 var dispatching_text = false
-var dialog_type = null
+var dialog_sequence = null
 
 
 func _ready():
 	EventBus.connect("start_dungeon_master_dialog", self, "_start_dialog")
 
 func _input(event):
-	if GameManager.in_dialog and Input.get_action_strength("ui_accept"):
-		if dispatching_text:
-			current_text_speed /= 2
+	if dialog_list != null:
+		if dialog_list.size() > dialog_index:
+			if Input.get_action_strength("ui_accept"):
+				if dispatching_text:
+					current_text_speed /= 2
+				else:
+					_next_dialog()
 		else:
-			_next_dialog()
+			print("5")
+			_hide()
 	
-func _start_dialog(name, type):
-	dialog_type = type
-	if GameManager.in_dialog: return
-	dialog_list = GameManager.get_dialog(name)
+func _start_dialog(sequence):
+	dialog_sequence = sequence
+	if GameManager.hud_active: return
+	dialog_list = GameManager.get_dialog(Dialog.Sequence.keys()[sequence])
 	dialog_index
-	_next_dialog()
-	GameManager.in_dialog = true
+	GameManager.hud_active = true
 	animation_player.play("appear")
-
+	_next_dialog()
+	
 func _next_dialog():	
 	dialog.text = ""
 	current_text_speed = DEFAULT_TEXT_SPEED
-	if dialog_list.size() > dialog_index:
-		var speech = dialog_list[dialog_index]
-		var text = speech["text"]
-		var sound = speech["sound"]
-		print(text, sound)
-		if !sound.empty():
-			sound_player.stop()
-			sound_player.stream = load("res://sounds/" + sound)
-			sound_player.play()
-		if !text.empty():
-			dispatching_text = true
-			dialog_container.visible = true
-			while text != "":
-				yield(get_tree().create_timer(current_text_speed), "timeout")
-				dialog.text += text.left(1)
-				text = text.right(1)
-			dispatching_text = false
-		dialog_index += 1 
-	else:
-		_hide()
+	var speech = dialog_list[dialog_index]
+	var text = speech["text"]
+	var sound = speech["sound"]
+	print(text, sound)
+	if !sound.empty():
+		sound_player.stop()
+		sound_player.stream = load("res://sounds/" + sound)
+		sound_player.play()
+	if !text.empty():
+		dialog_container.visible = true
+		dispatching_text = true
+		dialog_container.visible = true
+		while text != "":
+			yield(get_tree().create_timer(current_text_speed), "timeout")
+			dialog.text += text.left(1)
+			text = text.right(1)
+		dispatching_text = false
+	else :
+		dialog_container.visible = false
+	dialog_index += 1 
 		
 func _hide():
-	match Dialog.Sequence.keys()[dialog_type]:
-		"dance":
+	match dialog_sequence:
+		Dialog.Sequence.dance:
 			GameManager.player.end_dance()
 		_:
 			pass
 	dialog_list = null	
 	dialog_index = 0
-	GameManager.in_dialog = false
-	dialog_container.visible = false
-	animation_player.play_backwards("appear")
+	GameManager.hud_active = false
+	animation_player.play("disappear")
 	
+func _on_disapeared():
+	dialog.text = ""

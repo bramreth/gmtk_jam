@@ -41,7 +41,7 @@ func _physics_process(delta):
 	$Light2D.scale = Vector2(1 + flicker, 1 + flicker)
 
 func _unhandled_input(event):
-	if GameManager.in_dialog: return
+	if GameManager.hud_active: return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
