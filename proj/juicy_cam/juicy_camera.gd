@@ -31,5 +31,5 @@ func _process(delta):
 	if trauma > 0: trauma = clamp(trauma - (delta * decay), 0, 1)
 
 func _input(event):
-	if Input.get_action_strength("ui_accept"):
+	if Input.get_action_strength("ui_end"):
 		add_trauma(0.2)
