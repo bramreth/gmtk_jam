@@ -5,6 +5,7 @@ var level = 1
 var dialog_path:String = "res://data/dialog.cfg"
 var dialog_json
 var in_dialog = false
+var player = null
 
 func _ready() -> void:
 	var dialog_data = File.new()

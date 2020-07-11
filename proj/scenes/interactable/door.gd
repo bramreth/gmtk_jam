@@ -1,5 +1,5 @@
 extends "res://scenes/interactable/interactable.gd"
-
+class_name interactible
 export(bool) var locked = false
 
 func _ready():

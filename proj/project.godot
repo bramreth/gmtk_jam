@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "PaletteImporter",
 "language": "GDScript",
 "path": "res://addons/color-palette/PaletteImporter.gd"
+}, {
+"base": "StaticBody2D",
+"class": "interactible",
+"language": "GDScript",
+"path": "res://scenes/interactable/door.gd"
 } ]
 _global_script_class_icons={
 "ColorTile": "",
 "CurveTween": "",
 "FlexGridContainer": "res://addons/color-palette/utilities/FlexGridContainerIcon.png",
 "Palette": "",
-"PaletteImporter": ""
+"PaletteImporter": "",
+"interactible": ""
 }
 
 [application]

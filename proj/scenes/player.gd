@@ -6,6 +6,8 @@ var time = 0
 var tile_size = 128
 var abs_pos = position
 
+var active_interactible = null
+
 var inputs = {
 	"right": Vector2.RIGHT,
 	"left": Vector2.LEFT,
@@ -17,6 +19,7 @@ onready var ray = $RayCast2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameManager.player = self
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE # * tile_size/2
 	abs_pos = position
@@ -42,3 +45,12 @@ func move(dir):
 
 func _on_CurveTween_curve_tween(sat):
 	position = sat
+
+
+func _on_CurveTween_tween_completed(object, key):
+	ray.force_raycast_update()
+	active_interactible = null
+	if ray.get_collider():
+		if ray.get_collider().get("is_interactible"):
+			active_interactible = ray.get_collider()
+	

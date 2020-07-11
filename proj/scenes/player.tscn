@@ -29,6 +29,7 @@ polygon = PoolVector2Array( 0, 0, 0, 128, 128, 128, 128, 0 )
 position = Vector2( 64, 64 )
 enabled = true
 cast_to = Vector2( 0, 128 )
+collide_with_areas = true
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 64, 96 )
@@ -45,3 +46,4 @@ curve = SubResource( 3 )
 texture = ExtResource( 2 )
 centered = false
 [connection signal="curve_tween" from="CurveTween" to="." method="_on_CurveTween_curve_tween"]
+[connection signal="tween_completed" from="CurveTween" to="." method="_on_CurveTween_tween_completed"]
