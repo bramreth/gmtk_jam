@@ -24,7 +24,8 @@ func _input(event):
 		if Input.is_action_just_pressed("ui_down"):
 			w_index = fposmod(w_index - 1, known_k.size())
 			texter.text = known_k[w_index]
-
+		if Input.is_action_just_pressed("ui_cancel"):
+			activate_texter(false)
 func _on_LineEdit_text_entered(new_text: String):
 	# sanitise the text before parsing
 	var s_text = new_text.strip_edges()
@@ -60,6 +61,12 @@ func parse_text(text_in: String):
 	print(top_word)
 	if top_word[0]:
 		valid = true
-		if GameManager.player.active_interactible:
-			GameManager.player.active_interactible.interact(top_word[0])
+		var action = top_word[0]
+		match action:
+			Verbs.HELP:
+				Dialog.start(Dialog.Sequence.Help)
+				pass
+			_:
+				if GameManager.player.active_interactible:
+					GameManager.player.active_interactible.interact(action)
 	if valid: activate_texter(false)
