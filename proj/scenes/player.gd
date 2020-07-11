@@ -7,12 +7,7 @@ var time = 0
 var tile_size = 128
 var abs_pos = position
 
-enum stipulation{
-	FAST,
-	NONE
-}
-
-export(stipulation) var current_stip = stipulation.NONE
+var current_stip = GameManager.stipulation.NONE
 
 var active_interactible = null
 var underneath_tile = null
@@ -54,7 +49,7 @@ func _unhandled_input(event):
 func move(dir):
 	if $CurveTween.is_active(): return
 	match current_stip:
-		stipulation.FAST:
+		GameManager.stipulation.FAST:
 			ray.cast_to = inputs[dir] * tile_size
 			update_selection()
 			$CurveTween.play(0.08, position, position + deep_raycast(inputs[dir], 1))

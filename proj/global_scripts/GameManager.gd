@@ -1,7 +1,10 @@
 extends Node
 
 var level = 1
-
+enum stipulation{
+	FAST,
+	NONE
+}
 var dialog_path:String = "res://data/dialog.cfg"
 var dialog_json
 var in_dialog = false
@@ -22,3 +25,6 @@ func change_floor(up):
 		level += 1
 		var next_scene_path = "res://scenes/level_"+str(level)+".tscn"
 		get_tree().change_scene(next_scene_path)
+
+func stipulation(stip):
+	player.current_stip = stip
