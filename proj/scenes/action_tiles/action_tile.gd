@@ -14,4 +14,3 @@ func _on_player_entered(player):
 
 func _on_stipulation():
 	GameManager.stipulation(stipulation)
-	queue_free()
