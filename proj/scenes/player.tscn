@@ -14,41 +14,40 @@ extents = Vector2( 64, 64 )
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 1.4, 0.0, 0, 0 ]
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 256, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 384, 0, 128, 128 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "walk_down",
 "speed": 32.0
 } ]
 
-[sub_resource type="Animation" id=4]
-resource_name = "dance_1"
+[sub_resource type="Animation" id=9]
 length = 0.8
 loop = true
 tracks/0/type = "bezier"
@@ -82,7 +81,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2, 0.6, 0.8 )
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -139,12 +138,12 @@ script = ExtResource( 1 )
 curve = SubResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 playing = true
 centered = false
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
-anims/dance_1 = SubResource( 4 )
-anims/fire_death = SubResource( 5 )
+anims/dance_1 = SubResource( 9 )
+anims/fire_death = SubResource( 10 )
 [connection signal="curve_tween" from="CurveTween" to="." method="_on_CurveTween_curve_tween"]
 [connection signal="tween_completed" from="CurveTween" to="." method="_on_CurveTween_tween_completed"]

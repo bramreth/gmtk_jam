@@ -111,4 +111,4 @@ func dance():
 	
 func end_dance():
 	animation_player.stop()
-	animation_player.seek(0)
+	animation_player.seek(0, true)

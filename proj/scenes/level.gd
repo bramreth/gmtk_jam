@@ -11,7 +11,9 @@ func _ready():
 	EventBus.emit_signal("start_dungeon_master_dialog", "floor"+ str(floor_num))
 	player.set_spawn_point(stairs_down.position - Vector2(64, 64))
 	cam_list = get_tree().get_nodes_in_group("cam_target")
-	$Node2D.target = $camera_spots/Position2D.position
+	$Node2D.target = $camera_spots/Position2D
+	$Node2D.zoom = $camera_spots/Position2D.zoom
+	$Node2D.position = $camera_spots/Position2D.position
 
 
 func _on_player_moved(pos: Vector2):
@@ -20,4 +22,4 @@ func _on_player_moved(pos: Vector2):
 		var d = pos.distance_to(cam.position)
 		if d < closest[1]:
 			closest = [cam, d]
-	$Node2D.target = closest[0].position
+	$Node2D.target = closest[0]

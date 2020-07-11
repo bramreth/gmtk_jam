@@ -31,7 +31,8 @@ func _process(delta):
 	rotation_degrees = noise.get_noise_3d(0, 0, time * time_scale) * max_r * shake
 	
 	if trauma > 0: trauma = clamp(trauma - (delta * decay), 0, 1)
-	position = lerp(position, target, delta * 10)
+	position = lerp(position, target.position, delta * 10)
+	zoom = lerp(zoom, target.zoom, delta * 10)
 
 func _input(event):
 	if Input.get_action_strength("ui_end"):
