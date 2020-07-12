@@ -104,12 +104,8 @@ func _on_CurveTween_tween_completed(object, key):
 func die(death_type):
 	is_dead = true
 	match (death_type):
-		Deaths.Type.Fire:
+		Deaths.Type.Larva:
 			animation_player.play("fire_death")
-			pass
-		Deaths.Type.Acid:
-			animation_player.play("acid_death")
-			pass
 
 func respawn():
 	is_dead = false
