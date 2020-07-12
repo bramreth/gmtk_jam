@@ -20,7 +20,7 @@ position = Vector2( 0, -32 )
 position = Vector2( 256, -128 )
 
 [node name="book" parent="." index="6" instance=ExtResource( 3 )]
-position = Vector2( -384, -128 )
+position = Vector2( -768, -384 )
 
 [node name="Position2D" parent="camera_spots" index="0"]
 position = Vector2( 0, -32 )
