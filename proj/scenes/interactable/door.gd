@@ -3,7 +3,10 @@ class_name interactible
 export(bool) var locked = false
 var open = false
 
+var dance_id = 420
+
 func _ready():
+	EventBus.connect("player_danced", self, "_on_player_danced")
 	EventBus.connect("unlock_door", self, "_unlock_and_open")
 	EventBus.connect("lock_door", self, "_lock_and_close")
 	
@@ -12,6 +15,11 @@ func interact(verb):
 			_open()
 		if verb == Verbs.CLOSE:
 			_close()
+	
+func _on_player_danced():
+	if id == dance_id:
+		Dialog.start(Dialog.Sequence.dance)
+		_unlock_and_open(id)
 	
 func _unlock_and_open(id):
 	if self.id == id:	
@@ -32,7 +40,11 @@ func _open():
 			_play_sound("sfx/open.wav")
 			open = true
 		else:
-			Dialog.start(Dialog.Sequence.DoorIsLocked)
+			if id == dance_id:
+				Dialog.start(Dialog.Sequence.DoorIsLockedDoADance)
+			else:
+				Dialog.start(Dialog.Sequence.DoorIsLocked)
+				
 
 func _close():
 	if open:
