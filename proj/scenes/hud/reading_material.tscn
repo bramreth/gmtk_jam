@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/hud/reading_material.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/book.png" type="Texture" id=2]
@@ -8,6 +8,14 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 35
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -169,6 +177,67 @@ margin_right = 653.979
 margin_bottom = 551.956
 rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 5 )
+
+[node name="book_3" type="Control" parent="books"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="image" type="TextureRect" parent="books/book_3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.89801
+margin_top = -130.249
+margin_right = -294.898
+margin_bottom = -112.249
+rect_scale = Vector2( 1.4, 1.4 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="books/book_3"]
+margin_left = 237.025
+margin_top = 107.617
+margin_right = 559.025
+margin_bottom = 451.617
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -15
+text = "I had thought constructing 
+this dungeon in my mom’s 
+        basement would fill the 
+			      void in my heart, but it 
+									       has only served to 
+										         exacerbate my 
+												             loneliness. 
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="books/book_3"]
+margin_left = 498.039
+margin_top = 177.942
+margin_right = 810.039
+margin_bottom = 521.942
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -15
+text = "I yearn for a big titty 
+gf, a friend, or even a 
+simple 
+COMPLIMENT...
+										        "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="hint" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0 )

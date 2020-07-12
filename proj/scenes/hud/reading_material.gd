@@ -20,6 +20,10 @@ var book_data = {
 		"hint": "",
 		"counter": 0
 	},
+	"book_3": {
+		"hint": "",
+		"counter": 0
+	},
 }
 
 func _ready():
