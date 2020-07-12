@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/hud/reading_material.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/book.png" type="Texture" id=2]
 [ext_resource path="res://fonts/hand_writing.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://fonts/Dungeon Crawler CB.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://art_assets/chad_troll_sketch.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 45
@@ -120,6 +121,53 @@ text = "   r, r, r, d, r, r,
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="book_2" type="Control" parent="books"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="image" type="TextureRect" parent="books/book_2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.89801
+margin_top = -129.798
+margin_right = -294.898
+margin_bottom = -111.798
+rect_scale = Vector2( 1.4, 1.4 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="books/book_2"]
+margin_left = 521.344
+margin_top = 177.527
+margin_right = 801.344
+margin_bottom = 474.527
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -30
+text = " Use the ATTACK
+  command to 
+   defeat the
+     chads"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="books/book_2"]
+margin_left = 297.979
+margin_top = 71.9555
+margin_right = 653.979
+margin_bottom = 551.956
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 5 )
 
 [node name="hint" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0 )
