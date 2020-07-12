@@ -11,7 +11,9 @@ enum Sequence {
 	BadWalking,
 	Help,
 	dance,
-	DoorIsLockedDoADance
+	DoorIsLockedDoADance,
+	win,
+	final
 }
 
 func start_by_name(name):

@@ -73,6 +73,8 @@ func _hide():
 	match dialog_sequence:
 		Dialog.Sequence.dance:
 			GameManager.player.end_dance()
+		Dialog.Sequence.win:
+			get_tree().quit()
 		_:
 			pass
 	dialog_list = null	

@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/interactable/interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art_assets/dm_sprite_sheet.png" type="Texture" id=2]
+[ext_resource path="res://scenes/interactable/dm.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="interactbale" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="sprite" parent="collision" index="0"]
+position = Vector2( 24, 0 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+centered = false
