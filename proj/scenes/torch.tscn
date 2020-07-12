@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/fire.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art_assets/torch_without_wall.png" type="Texture" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 61.0221, 52.8706 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="torch_without_wall" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
