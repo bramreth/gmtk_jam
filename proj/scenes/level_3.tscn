@@ -27,7 +27,7 @@ position = Vector2( -128, -256 )
 position = Vector2( 128, -256 )
 
 [node name="bookcase" parent="Node2D2" index="3" instance=ExtResource( 5 )]
-position = Vector2( -512, -256 )
+position = Vector2( -512, -240 )
 
 [node name="lava" type="Node2D" parent="." index="4"]
 
