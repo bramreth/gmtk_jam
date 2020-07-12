@@ -13,7 +13,8 @@ enum Sequence {
 	dance,
 	DoorIsLockedDoADance,
 	win,
-	final
+	final,
+	fast
 }
 
 func start_by_name(name):

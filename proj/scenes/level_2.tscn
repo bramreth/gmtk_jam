@@ -59,6 +59,7 @@ position = Vector2( 2240, -448 )
 [node name="dialog_tile" parent="." index="4" instance=ExtResource( 4 )]
 position = Vector2( 1344, -64.001 )
 stipulation = 0
+dialog_sequence = 13
 
 [node name="door" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 512, -128 )
