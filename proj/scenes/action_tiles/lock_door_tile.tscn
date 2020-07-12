@@ -5,3 +5,7 @@
 
 [node name="lock_door_tile" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="sprite" parent="collision" index="0"]
+visible = false
+frame = 1
