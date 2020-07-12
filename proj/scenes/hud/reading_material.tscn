@@ -15,7 +15,7 @@ font_data = ExtResource( 4 )
 [sub_resource type="Animation" id=3]
 resource_name = "show_hint"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Control:modulate")
+tracks/0/path = NodePath("hint:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -35,13 +35,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="image" type="TextureRect" parent="."]
+[node name="books" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -208.101
-margin_top = -120.184
-margin_right = -208.101
-margin_bottom = -102.184
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="book_0" type="Control" parent="books"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="image" type="TextureRect" parent="books/book_0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.89801
+margin_top = -129.798
+margin_right = -294.898
+margin_bottom = -111.798
 rect_scale = Vector2( 1.4, 1.4 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -51,7 +66,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="books/book_0"]
 margin_left = 521.344
 margin_top = 177.527
 margin_right = 801.344
@@ -59,12 +74,54 @@ margin_bottom = 474.527
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = -30
-text = "Useful Commandz!
+text = " Useful Commandz!
 
-Open     Read
+ Open       Read
+
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Control" type="Control" parent="."]
+[node name="book_1" type="Control" parent="books"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="image" type="TextureRect" parent="books/book_1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.89801
+margin_top = -129.798
+margin_right = -294.898
+margin_bottom = -111.798
+rect_scale = Vector2( 1.4, 1.4 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="books/book_1"]
+margin_left = 521.344
+margin_top = 177.527
+margin_right = 801.344
+margin_bottom = 474.527
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = -30
+text = "bookcase book
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hint" type="Control" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 margin_left = 8.98865
@@ -77,7 +134,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="ColorRect" parent="Control"]
+[node name="TextureRect" type="ColorRect" parent="hint"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 23.5953
@@ -91,15 +148,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="hint"]
 margin_left = 29.2132
 margin_top = 12.3594
 margin_right = 277.213
 margin_bottom = 49.3594
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "   Use comands you find along
-   the trial  to aid your escape"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -1,18 +1,19 @@
 extends Node
 
 enum Sequence {
-	floor1,
-	floor2,
-	floor3,
-	book0,
-	book1,
-	book2,
+	floor_1,
+	floor_2,
+	floor_3,
+	book_0_0,
+	book_0_1,
+	book_0_2,
 	DoorIsLocked,
 	Help,
 	dance
 }
 
 func start_by_name(name):
+	print(name)
 	for value in Dialog.Sequence.values():
 		var key = Dialog.Sequence.keys()[value]
 		if key == name:
