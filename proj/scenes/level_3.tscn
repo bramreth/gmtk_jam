@@ -63,53 +63,60 @@ position = Vector2( -448, 192 )
 [node name="notes" type="Node2D" parent="." index="5"]
 
 [node name="sound_tile" parent="notes" index="0" instance=ExtResource( 3 )]
-position = Vector2( -316.621, 312.303 )
+position = Vector2( -450.465, 305.107 )
 
 [node name="sound_tile2" parent="notes" index="1" instance=ExtResource( 3 )]
-position = Vector2( -320.938, 193.57 )
+position = Vector2( -323.817, 304.388 )
 note = 1
 
 [node name="sound_tile3" parent="notes" index="2" instance=ExtResource( 3 )]
-position = Vector2( -319.499, 64.0437 )
+position = Vector2( -323.097, 177.739 )
 note = 2
 
 [node name="sound_tile4" parent="notes" index="3" instance=ExtResource( 3 )]
-position = Vector2( -318.06, -59.0066 )
+position = Vector2( -320.938, 66.2025 )
 note = 3
 
 [node name="sound_tile5" parent="notes" index="4" instance=ExtResource( 3 )]
-position = Vector2( -185.655, -62.6045 )
+position = Vector2( -318.06, -64.7633 )
 note = 4
 
 [node name="sound_tile6" parent="notes" index="5" instance=ExtResource( 3 )]
-position = Vector2( -56.8478, -62.6045 )
+position = Vector2( -194.29, -59.0066 )
 note = 5
 
 [node name="sound_tile7" parent="notes" index="6" instance=ExtResource( 3 )]
-position = Vector2( -61.1653, 74.8376 )
+position = Vector2( -64.0437, -49.6519 )
 note = 6
 
 [node name="sound_tile8" parent="notes" index="7" instance=ExtResource( 3 )]
-position = Vector2( 69.8004, 71.2396 )
+position = Vector2( -60.4458, 67.6417 )
 note = 7
 
 [node name="sound_tile9" parent="notes" index="8" instance=ExtResource( 3 )]
-position = Vector2( 189.972, 74.118 )
+position = Vector2( 61.8849, 59.0065 )
 note = 8
 
 [node name="sound_tile10" parent="notes" index="9" instance=ExtResource( 3 )]
-position = Vector2( 192.131, -48.9323 )
+position = Vector2( 185.655, 59.7262 )
 note = 9
 
 [node name="sound_tile11" parent="notes" index="10" instance=ExtResource( 3 )]
-position = Vector2( 307.985, -56.8478 )
+position = Vector2( 192.131, -66.9221 )
 note = 10
 
 [node name="sound_tile12" parent="notes" index="11" instance=ExtResource( 3 )]
-position = Vector2( 446.147, -66.2025 )
+position = Vector2( 315.901, -56.8478 )
 note = 11
+
+[node name="sound_tile13" parent="notes" index="12" instance=ExtResource( 3 )]
+position = Vector2( 440.39, -61.1653 )
+note = 12
 
 [node name="player" parent="." index="9"]
 position = Vector2( -246.82, 253.296 )
 
 [node name="lava" type="Node2D" parent="." index="10"]
+
+[node name="Sprite" parent="." index="12"]
+position = Vector2( -88.1563, -479.28 )

@@ -12,10 +12,11 @@ enum Note {
 	EIGHT = 8,
 	NINE = 9,
 	TEN = 10,
-	ELEVEN = 11
+	ELEVEN = 11,
+	TWELVE = 12
 }
 
 export (Note) var note = Note.ZERO
 
 func _on_player_entered(player):
-	_play_sound("notes/note" + str(note) + ".wav")
+	_play_sound("notes/" + str(note) + ".wav")
