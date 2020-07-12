@@ -8,3 +8,7 @@ script = ExtResource( 2 )
 
 [node name="sprite" parent="collision" index="0"]
 visible = false
+frame = 0
+
+[node name="audio_player" parent="." index="1"]
+volume_db = -10.0

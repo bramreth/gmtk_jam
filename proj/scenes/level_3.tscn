@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/action_tiles/death_tile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/action_tiles/sound_tile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/torch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interactable/bookcase.tscn" type="PackedScene" id=5]
 
 [node name="level" instance=ExtResource( 1 )]
 floor_num = 3
@@ -24,6 +25,9 @@ position = Vector2( -128, -256 )
 
 [node name="Node2D3" parent="Node2D2" index="2" instance=ExtResource( 4 )]
 position = Vector2( 128, -256 )
+
+[node name="bookcase" parent="Node2D2" index="3" instance=ExtResource( 5 )]
+position = Vector2( -512, -256 )
 
 [node name="lava" type="Node2D" parent="." index="4"]
 

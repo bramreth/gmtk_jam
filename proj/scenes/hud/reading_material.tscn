@@ -115,8 +115,8 @@ margin_bottom = 474.527
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = -30
-text = "bookcase book
-"
+text = "   r, r, r, d, r, r, 
+         u, r, r"
 __meta__ = {
 "_edit_use_anchors_": false
 }
