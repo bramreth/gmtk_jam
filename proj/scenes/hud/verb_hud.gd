@@ -3,7 +3,7 @@ extends Control
 onready var texter = get_node("LineEdit")
 var active = false
 var keywords = Verbs.get_list()
-var known_k = [Verbs.OPEN, Verbs.ATTACK]
+var known_k = [Verbs.OPEN]
 var w_index = 0
 
 func _ready():
