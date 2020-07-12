@@ -10,4 +10,5 @@ script = ExtResource( 1 )
 visible = false
 modulate = Color( 2, 2, 2, 1 )
 animation = "Larva"
+frame = 1
 centered = true

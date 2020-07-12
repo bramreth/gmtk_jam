@@ -8,6 +8,7 @@ enum Sequence {
 	book_0_1,
 	book_0_2,
 	DoorIsLocked,
+	BadWalking,
 	Help,
 	dance
 }
