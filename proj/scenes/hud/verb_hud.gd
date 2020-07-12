@@ -68,8 +68,8 @@ func parse_text(text_in: String):
 			Verbs.HELP:
 				Dialog.start(Dialog.Sequence.Help)
 			Verbs.DANCE:
-				Dialog.start(Dialog.Sequence.dance)
 				GameManager.player.dance()
+				EventBus.emit_signal("player_danced")
 			_:
 				if GameManager.player.active_interactible:
 					GameManager.player.active_interactible.interact(action)

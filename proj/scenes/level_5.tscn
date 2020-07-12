@@ -56,6 +56,9 @@ position = Vector2( 126.234, -1152 )
 [node name="stairs_up" parent="." index="3"]
 position = Vector2( 320, -1984 )
 
+[node name="Sprite" parent="." index="9"]
+position = Vector2( -49.9389, 45.7786 )
+
 [node name="Position2D2" parent="camera_spots" index="1" instance=ExtResource( 2 )]
 position = Vector2( 0, -800 )
 zoom = Vector2( 1.2, 1.2 )

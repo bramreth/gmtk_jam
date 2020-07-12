@@ -7,3 +7,6 @@ signal show_material(id)
 # LEVEL
 signal unlock_door(id)
 signal lock_door(id)
+
+#ACTION
+signal player_danced()
