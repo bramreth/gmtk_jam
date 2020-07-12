@@ -67,5 +67,5 @@ position = Vector2( 0, -32 )
 zoom = Vector2( 1.66, 1.66 )
 
 [node name="dialog_tile" parent="." index="14" instance=ExtResource( 8 )]
-position = Vector2( 189.812, -61.324 )
+position = Vector2( 1272, -712 )
 dialog_sequence = 7

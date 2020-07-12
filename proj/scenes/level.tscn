@@ -233,7 +233,7 @@ adjustment_enabled = true
 adjustment_contrast = 1.3
 adjustment_saturation = 0.9
 
-[sub_resource type="Shader" id=20]
+[sub_resource type="Shader" id=16]
 code = "shader_type canvas_item;
 
 uniform sampler2D n2;
@@ -253,37 +253,37 @@ void fragment(){
 	COLOR = t;
 }"
 
-[sub_resource type="OpenSimplexNoise" id=23]
+[sub_resource type="OpenSimplexNoise" id=17]
 
-[sub_resource type="NoiseTexture" id=22]
+[sub_resource type="NoiseTexture" id=18]
 width = 640
 height = 640
 seamless = true
-noise = SubResource( 23 )
+noise = SubResource( 17 )
 
-[sub_resource type="ShaderMaterial" id=21]
-shader = SubResource( 20 )
-shader_param/n2 = SubResource( 22 )
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 16 )
+shader_param/n2 = SubResource( 18 )
 
-[sub_resource type="OpenSimplexNoise" id=16]
+[sub_resource type="OpenSimplexNoise" id=20]
 period = 54.4
 
-[sub_resource type="NoiseTexture" id=17]
+[sub_resource type="NoiseTexture" id=21]
 width = 640
 height = 640
 seamless = true
-noise = SubResource( 16 )
+noise = SubResource( 20 )
 
-[sub_resource type="OpenSimplexNoise" id=18]
+[sub_resource type="OpenSimplexNoise" id=22]
 seed = 1
 
-[sub_resource type="NoiseTexture" id=19]
+[sub_resource type="NoiseTexture" id=23]
 width = 640
 height = 640
 seamless = true
 as_normalmap = true
 bump_strength = 32.0
-noise = SubResource( 18 )
+noise = SubResource( 22 )
 
 [node name="level" type="Node2D"]
 script = ExtResource( 6 )
@@ -326,11 +326,11 @@ zoom = Vector2( 1.2, 1.2 )
 environment = SubResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 21 )
+material = SubResource( 19 )
 position = Vector2( 8.98865, -480 )
-scale = Vector2( 6, 6 )
-texture = SubResource( 17 )
-normal_map = SubResource( 19 )
+scale = Vector2( 8, 8 )
+texture = SubResource( 21 )
+normal_map = SubResource( 23 )
 
 [node name="camera_spots" type="Node" parent="."]
 
