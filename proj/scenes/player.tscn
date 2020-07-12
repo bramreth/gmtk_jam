@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://CurveTween/CurveTween.gd" type="Script" id=1]
 [ext_resource path="res://art_assets/front_walk_cycle_sheet.png" type="Texture" id=2]
@@ -17,103 +17,103 @@ extents = Vector2( 64, 64 )
 [sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 1.0, 0, 1, Vector2( 1, 1 ), 1.0, 0.0, 1, 0 ]
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 7 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 128, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 256, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 384, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 8 )
-region = Rect2( 128, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 8 )
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 8 )
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 6 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 6 )
 region = Rect2( 256, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 8 )
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 6 )
 region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 8 )
+region = Rect2( 128, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 7 )
-region = Rect2( 128, 0, 128, 128 )
+atlas = ExtResource( 8 )
+region = Rect2( 256, 0, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 7 )
-region = Rect2( 256, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 7 )
+atlas = ExtResource( 8 )
 region = Rect2( 384, 0, 128, 128 )
 
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 6 )
-region = Rect2( 128, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 6 )
-region = Rect2( 256, 0, 128, 128 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 6 )
-region = Rect2( 384, 0, 128, 128 )
-
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=20]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
-"loop": true,
-"name": "walk_down",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 30 ), SubResource( 29 ), SubResource( 31 ), SubResource( 32 ) ],
-"loop": true,
-"name": "walk_up",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "walk_right",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "walk_down",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "walk_left",
 "speed": 12.0
+}, {
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "walk_up",
+"speed": 12.0
 } ]
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=21]
 length = 0.8
 loop = true
 tracks/0/type = "bezier"
@@ -147,7 +147,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.2, 0.6, 0.8 )
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=22]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -175,6 +175,14 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true ]
 }
 
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 4 )
 noise = SubResource( 1 )
@@ -184,6 +192,7 @@ position = Vector2( 64, 64 )
 shape = SubResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 color = Color( 0.952941, 0.607843, 0.427451, 0.215686 )
 polygon = PoolVector2Array( 0, 0, 0, 128, 128, 128, 128, 0 )
 
@@ -199,17 +208,27 @@ texture_scale = 4.0
 energy = 0.75
 shadow_enabled = true
 
+[node name="Light2D2" type="Light2D" parent="."]
+position = Vector2( 64, 96 )
+texture = ExtResource( 3 )
+texture_scale = 4.0
+energy = 0.75
+range_item_cull_mask = 2
+
 [node name="CurveTween" type="Tween" parent="."]
 script = ExtResource( 1 )
 curve = SubResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 14 )
+frames = SubResource( 20 )
 animation = "walk_right"
 centered = false
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
-anims/dance_1 = SubResource( 15 )
-anims/fire_death = SubResource( 16 )
+anims/dance_1 = SubResource( 21 )
+anims/fire_death = SubResource( 22 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 23 )
 [connection signal="curve_tween" from="CurveTween" to="." method="_on_CurveTween_curve_tween"]
 [connection signal="tween_completed" from="CurveTween" to="." method="_on_CurveTween_tween_completed"]
