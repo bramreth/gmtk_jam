@@ -99,7 +99,7 @@ margin_bottom = 49.3594
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "   Use comands you find along
-   your trial  to aid your escape"
+   the trial  to aid your escape"
 __meta__ = {
 "_edit_use_anchors_": false
 }

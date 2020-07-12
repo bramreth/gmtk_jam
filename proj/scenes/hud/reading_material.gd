@@ -2,6 +2,8 @@ extends Control
 
 onready var image = $image
 
+var view_count = 0
+
 func _ready():
 	visible = false
 	EventBus.connect("show_material", self, "_show")
@@ -19,3 +21,5 @@ func _show():
 func _hide():
 	GameManager.hud_active = false
 	visible = false
+	Dialog.start_by_name("book" + str((view_count % 3)))
+	view_count += 1

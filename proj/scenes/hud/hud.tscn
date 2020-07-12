@@ -13,6 +13,6 @@ __meta__ = {
 
 [node name="dungeon_master" parent="." instance=ExtResource( 1 )]
 
-[node name="verb_hud" parent="." instance=ExtResource( 2 )]
-
 [node name="reading_material" parent="." instance=ExtResource( 3 )]
+
+[node name="verb_hud" parent="." instance=ExtResource( 2 )]

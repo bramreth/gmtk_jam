@@ -1,9 +1,13 @@
 extends VBoxContainer
 
+var image_res_path = "res://art_assets/"
+
 onready var sound_player = $sound_player
 onready var dialog_container = $dialog
 onready var dialog = $dialog/text
 onready var animation_player = $animation_player
+
+onready var dm_image = $Control/TextureRect
 
 onready var DEFAULT_TEXT_SPEED = 0.07
 onready var current_text_speed = DEFAULT_TEXT_SPEED
@@ -43,8 +47,11 @@ func _next_dialog():
 	current_text_speed = DEFAULT_TEXT_SPEED
 	var speech = dialog_list[dialog_index]
 	var text = speech["text"]
+	var image = speech["image"]
 	var sound = speech["sound"]
-	print(text, sound)
+	print(text, image, sound)
+	dm_image.texture = load(image_res_path + image) if !image.empty() else load(image_res_path + "dm1.png")
+		
 	if !sound.empty():
 		sound_player.stop()
 		sound_player.stream = load("res://sounds/" + sound)
