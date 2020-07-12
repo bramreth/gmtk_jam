@@ -4,6 +4,7 @@ enum Sequence {
 	floor_1,
 	floor_2,
 	floor_3,
+	floor_4,
 	book_0_0,
 	book_0_1,
 	book_0_2,
