@@ -4,6 +4,9 @@ enum Sequence {
 	floor1,
 	floor2,
 	floor3,
+	book0,
+	book1,
+	book2,
 	DoorIsLocked,
 	Help,
 	dance
